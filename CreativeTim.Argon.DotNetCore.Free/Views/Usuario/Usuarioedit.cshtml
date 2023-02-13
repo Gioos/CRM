@@ -1,0 +1,74 @@
+﻿@model JuntoSeguros.ViewModel.Usuario_ViewModel_Editar
+@{
+    ViewData["Title"] = "Editar";
+}
+<br />
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="col-12">
+        <div class="card">
+            @Html.HiddenFor(x => x.Id, new { @id = "txt_IdUsuario" })
+            @Html.HiddenFor(x => x.Nome, new { @id = "txt_Nome" })
+            <div class="card-header card-header-icon card-header-primary" id="">
+                <div class="row">
+                    <div class="card-icon" id="minimizeSidebar">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                        &nbsp
+                    </div>
+                    <h4 class="card-title">
+                        EDITAR USUÁRIO
+                    </h4>
+                </div>
+            </div>
+            <div class="card-body card-body-left">
+                <div class="row col-12">
+                    <div class="col-md-10 col-ct-2 pt-3">
+                        <div class="float-div input-effect">
+                            <label>Usuário: @Model.Nome.ToUpper() </label>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+
+
+                <br />
+                <div class="form-group col-md-5">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label required" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type = "email" } })
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-1 col-ct-2 pt-3">
+                        <div class="float-div input-effect">
+                            <a class="btn btn-secondary" id="" href="/Usuario/Index">
+                                Voltar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-ct-2 pt-3">
+                        <div class="float-div input-effect">
+                            <input type="submit" value="Alterar" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .mesmo-tamanho {
+        width: 100%;
+        white-space: normal;
+    }
+</style>
+
+<script asp-append-version="true" src="~/Script/Usuario/index.js"></script>

@@ -1,0 +1,107 @@
+﻿@model IEnumerable<JuntoSeguros.ViewModel.Pessoa_ViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Pessoas";
+}
+<br />
+<br />
+
+<a type="button" class="btn btn-primary" href="/Pessoa/Cadastrar">Novo</a>
+<br />
+<br />
+<div class="card">
+    <div class="card-body card-body-left">
+
+        <div class="row col-12">
+            <div class="col-md-2 col-ct-2 pt-3">
+                <div class="float-div input-effect">
+                    <label>Ativo</label>
+                    @if (ViewData["SITUACAO"].ToString() == "A")
+                    {
+                        <input type="radio" name="situacao" class="situacaousuario" value="A" checked />
+                    }
+                    else
+                    {
+                        <input type="radio" name="situacao" class="situacaousuario" value="A" />
+                    }
+                </div>
+            </div>
+            <div class="col-md-2 col-ct-2 pt-3">
+                <div class="float-div input-effect">
+                    <label>Bloqueado</label>
+                    @if (ViewData["SITUACAO"].ToString() == "B")
+                    {
+                        <input type="radio" name="situacao" class="situacaousuario" value="B" checked />
+                    }
+                    else
+                    {
+                        <input type="radio" name="situacao" class="situacaousuario" value="B" />
+                    }
+
+                </div>
+            </div>
+            <div class="col-md-2 col-ct-2 pt-3">
+                <div class="float-div input-effect">
+                    <label>Inativo</label>
+                    @if (ViewData["SITUACAO"].ToString() == "I")
+                    {
+                        <input type="radio" name="situacao" class="situacaousuario" value="I" checked />
+                    }
+                    else
+                    {
+                        <input type="radio" name="situacao" class="situacaousuario" value="I" />
+                    }
+                </div>
+            </div>
+            <div class="col-md-2 col-ct-2 pt-3">
+                <div class="float-div input-effect">
+                    <label>Todos</label>
+                    @if (ViewData["SITUACAO"].ToString() == "T")
+                    {
+                        <input type="radio" name="situacao" class="situacaousuario" value="T" checked />
+                    }
+                    else
+                    {
+                        <input type="radio" name="situacao" class="situacaousuario" value="T" />
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <div>
+                <table class="table align-items-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" class="sort" data-sort="name">Nome</th>
+                            <th scope="col" class="sort" data-sort="status">Usuário</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        @foreach (var usuarios in Model)
+                        {
+                            <tr>
+                                <td scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="#" class="avatar rounded-circle mr-2">
+                                            <img alt="Image placeholder" src="~/img/user.png">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">@usuarios.Nome</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@usuarios.Email</td>
+                                <td class="text-right">
+                                    <a type="button" class="btn btn-primary" href="/Usuario/Usuarioedit?IdUsuario=@usuarios.ID">Editar</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script asp-append-version="true" src="~/Script/Pessoa/index.js"></script>

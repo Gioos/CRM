@@ -1,0 +1,63 @@
+﻿@model JuntoSeguros.ViewModel.Pessoa_ViewModel
+@{
+
+}
+<br />
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    @Html.HiddenFor(x => Model.ID, new { @id = "txt_IdPessoa"})
+
+    <div class="card">
+        <div class="card-header card-header-icon card-header-primary" id="">
+            <div class="row">
+                <div class="card-icon" id="minimizeSidebar">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    &nbsp
+                </div>
+                <h4 class="card-title">
+                    Cadastrar pessoa:
+                </h4>
+            </div>
+        </div>
+
+        <div class="card-body card-body-left">
+            <div class="row col-12">
+                <div class="col-md-2 col-ct-2 pt-3">
+                    <div class="float-div input-effect">
+                        <label>Tipo* </label>
+                    </div>
+                </div>
+                <div class="col-md-3 col-ct-2" style="left:15px;top: 20px">
+                    @Html.RadioButtonFor(model => model.TipoPessoa, "J", new { @id = "ckek_TipoPessoaJuridica", style = "vertical-align: sub;", @class = "form-check-input tipoPessoa"})Jurídica<span class="circle">
+                        <span class="check"></span>
+                    </span>
+                </div>
+                <div class="col-md-3 col-ct-2" style="right:115px;top: 20px">
+                    @Html.RadioButtonFor(model => model.TipoPessoa, "F", new { @id = "ckek_TipoPessoaFisica", style = "vertical-align: sub;", @class = "form-check-input tipoPessoa" })Física<span class="circle">
+                        <span class="check"></span>
+                    </span>
+                </div>
+            </div>
+            <div id="div_Partial_Pessoa_JuridicaFisica"></div>
+
+            <br />
+        </div>
+    </div>
+}
+
+<style>
+    .mesmo-tamanho {
+        width: 100%;
+        white-space: normal;
+    }
+
+    label {
+        font-weight: bold
+    }
+</style>
+
+
+<script asp-append-version="true" src="~/Script/Pessoa/index.js"></script>

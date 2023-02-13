@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <partial name="_PageHeadElement" />
+
+    @RenderSection("Styles", required: false)
+    @RenderSection("HeadScripts", required: false)
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+    <partial name="_GoogleTagManagerBodyElement" />
+    <partial name="_Sidenav" />
+    <div class="main-content">
+        <partial name="Topnav/_Topnav" />
+
+        <!-- Header -->
+        <div class="">
+            @* <div class="header bg-primary pb-6">*@
+            <div class="container-fluid">
+                <div class="header-body">
+                    <!-- 1st Row: Crumbs and filters -->
+                    <div class="row align-items-center py-4">
+                        @RenderSection("Breadcrumbs", required: false)
+                        <div class="col-lg-6 col-5 text-right">
+                        </div>
+                    </div>
+                    @RenderSection("DashboardCards", required: false)
+                </div>
+            </div>
+        </div>
+
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+            <!-- Page content -->
+            @RenderBody()
+            <partial name="_Footer" />
+        </div>
+    </div>
+
+    <partial name="_ThemeScripts" />
+
+
+    <script asp-append-version="true" src="~/js/modal.js" type="text/javascript"></script>
+    <script asp-append-version="true" src="~/js/Uteis.js" type="text/javascript"></script>
+    <script asp-append-version="true" src="~/vendor/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
+    <script asp-append-version="true" src="~/vendor/sweetalert2/dist/sweetalert2.all.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>
+
+

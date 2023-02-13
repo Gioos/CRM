@@ -1,0 +1,34 @@
+﻿@model JuntoSeguros.ViewModel.Pessoa_ViewModel
+@{
+
+}
+<div class="card-body card-body-left">
+    <h4 class="card-title">
+        Jurídica
+    </h4>
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <label>Nome:</label>
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @type = "nome" } })
+        </div>
+        <div class="form-group col-md-5">
+            <label>Descrição:</label>
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" , @id = "" } })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 col-ct-2 pt-3">
+            <div class="float-div input-effect">
+                <a class="btn btn-secondary" id="" href="/Pessoa/Index">
+                    Voltar
+                </a>
+            </div>
+        </div>
+        <div class="col-md-1 col-ct-2 pt-3">
+            <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            <p><b class="text-danger">@ViewBag.Error</b></p>
+        </div>
+    </div>
+</div>

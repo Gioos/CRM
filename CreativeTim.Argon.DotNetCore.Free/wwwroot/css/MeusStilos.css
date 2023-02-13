@@ -1,0 +1,68 @@
+﻿@charset 'UTF-8';
+.tabelaPersonalizada {
+    border-collapse: separate !important;
+    border-spacing: 0;
+}
+
+    /* line 166, wwwroot/Style/scss/material-dashboard.scss */
+    .tabelaPersonalizada thead:first-child tr:first-child th:first-child {
+        border-top-left-radius: 10px;
+    }
+
+    /* line 170, wwwroot/Style/scss/material-dashboard.scss */
+    .tabelaPersonalizada thead:first-child tr:first-child th:last-child {
+        border-top-right-radius: 10px;
+    }
+
+    /* line 174, wwwroot/Style/scss/material-dashboard.scss */
+    .tabelaPersonalizada tbody:last-child tr:last-child td:first-child {
+        border-bottom-left-radius: 10px;
+    }
+
+    /* line 178, wwwroot/Style/scss/material-dashboard.scss */
+    .tabelaPersonalizada tbody:last-child tr:last-child td:last-child {
+        border-bottom-right-radius: 10px;
+    }
+
+    /* line 182, wwwroot/Style/scss/material-dashboard.scss */
+    .tabelaPersonalizada td {
+        border: 1px #616161 solid;
+        height: 01px !important;
+        border-left: 50px;
+        border-top: 50px;
+        font-size: 13px;
+        padding: 0px !important;
+        border-color: #B6B6B6 !important;
+    }
+
+        /* line 192, wwwroot/Style/scss/material-dashboard.scss */
+        .tabelaPersonalizada td:last-child {
+            border-right: 1px solid #B6B6B6 !important;
+        }
+
+        /* line 196, wwwroot/Style/scss/material-dashboard.scss */
+        .tabelaPersonalizada td:first-child {
+            border-left: 1px solid #B6B6B6 !important;
+        }
+
+    /* line 200, wwwroot/Style/scss/material-dashboard.scss */
+    .tabelaPersonalizada tr {
+        border-bottom: 55px solid #B6B6B6 !important;
+    }
+
+    /*#C3C3C3  cinza claro
+    #696969  cinza escuro*/
+    /* line 205, wwwroot/Style/scss/material-dashboard.scss */
+    .tabelaPersonalizada th {
+        color: black;
+        font-size: 15px !important;
+        padding-top: 1px !important;
+        padding-right: 1px !important;
+        padding-bottom: 1px !important;
+        padding-left: 1px !important;
+        width: auto;
+        height: 11px !important;
+        background-color: #5e72e4 !important;
+        border: 0px solid #E8E8E8 !important;
+        font-weight: bold !important;
+    }

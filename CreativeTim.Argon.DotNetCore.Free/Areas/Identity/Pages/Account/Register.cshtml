@@ -1,0 +1,132 @@
+﻿@page
+
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Table -->
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+        <div class="card bg-secondary shadow border-0">
+          @*  <div class="card-header bg-transparent pb-5">
+                <div class="text-muted text-center mt-2 mb-4">
+                    <small>Sign up with</small>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="btn btn-neutral btn-icon">
+                        <span class="btn-inner--icon">
+                            <img src="~/img/icons/common/google.svg">
+                        </span>
+                        <span class="btn-inner--text">Google</span>
+                    </a>
+                </div>
+            </div>*@
+            <div class="text-muted text-center mt-2 mb-3">
+                     <img src="~/img/LogoBora.png" width="70%">
+                </div>
+            <div class="card-body px-lg-5 py-lg-5">
+                <div class="text-center text-muted mb-4">
+                    <small></small>
+                </div>
+                <form asp-route-returnUrl="@Model.ReturnUrl" method="post" role="form">
+                    @if (!ViewData.ModelState.IsValid && ViewData.ModelState[string.Empty] != null)
+                    {
+                        @foreach (var error in @ViewData.ModelState[string.Empty]?.Errors)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <span>@error.ErrorMessage</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        }
+                    }
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="ni ni-hat-3"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Input.FullName" class="form-control" placeholder="Nome" type="text" required/>
+                        </div>
+                        <span asp-validation-for="Input.FullName" class="invalid-feedback" style="display: block"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="ni ni-email-83"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Input.Email" class="form-control" placeholder="Email" type="email" required/>
+                        </div>
+                        <span asp-validation-for="Input.Email" class="invalid-feedback" style="display: block"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="ni ni-lock-circle-open"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Input.Password" class="form-control" placeholder="Senha" type="password" required/>
+                        </div>
+                        <span asp-validation-for="Input.Password" class="invalid-feedback" style="display: block"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="ni ni-lock-circle-open"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirmar senha" type="password" required/>
+                        </div>
+                        <span asp-validation-for="Input.ConfirmPassword" class="invalid-feedback" style="display: block"></span>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-12">
+                            <div class="custom-control custom-control-alternative custom-checkbox">
+                                <input asp-for="Input.AcceptPrivacyPolicy" class="custom-control-input" id="customCheckRegister" type="checkbox" required/>
+                                <label class="custom-control-label" for="customCheckRegister">
+                                    <span class="text-muted">Eu li e aceito <a href="@Url.Action("Privacy", "Home")" target="_blank">Termos de privacidade</a></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary mt-4" type="submit">Criar acesso</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
+
+@section IdentityHeader
+{
+    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+        <div class="container">
+            @*<div class="header-body text-center mb-7">
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-lg-6 col-md-8 px-5">
+                        <h1 class="text-white">Criar novo acesso</h1>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+       @* <div class="separator separator-bottom separator-skew zindex-100">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>*@
+    </div>
+}

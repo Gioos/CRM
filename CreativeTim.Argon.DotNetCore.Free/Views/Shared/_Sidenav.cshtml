@@ -1,0 +1,70 @@
+@using Microsoft.AspNetCore.Identity
+@using WebApp.Identity
+@inject SignInManager<MyUser> SignInManager
+
+<!-- Sidenav -->
+<nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+
+        <!-- Brand -->
+        <div class="sidenav-header  align-items-center">
+            <a href="/Dashboard/Index"><img src="~/img/LogoBora.png" width="70%"></a>
+        </div>
+        <div class="navbar-inner">
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+
+                <!-- Collapse header -->
+                <div class="navbar-collapse-header d-md-none">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a href="/">
+                                <img src="~/img/LogoBoticario.png" width="70%">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" href="@Url.Action("Index", "Home")">
+                            <i class="ni ni-planet"></i>
+                            <span class="nav-link-inner--text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Usuario/Index">
+                            <i class="fa fa-user-plus text-green"></i> Usuário
+                        </a>
+                    </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="/Pessoa/Index">
+                            <i class="fa fa-align-justify text-blue"></i> Cadastro Pessoa
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Senha/Redefinir">
+                            <i class="ni ni-send text-dark"></i>
+                            <span class="nav-link-text">Trocar senha</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Divider -->
+                <hr class="my-3">
+            </div>
+        </div>
+    </div>
+
+</nav>
